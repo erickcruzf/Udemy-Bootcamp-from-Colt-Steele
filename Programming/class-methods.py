@@ -16,6 +16,9 @@ class User:
 		self.last = last
 		self.age = age
 		User.active_users += 1
+	
+	def __repr__(self):
+		return f"({self.first} is {self.age})
 
 	def logout(self):
 		User.active_users -= 1
@@ -50,3 +53,4 @@ class User:
 #print(tom.first)
 #print(tom.full_name())
 #print(tom.birthday())
+#print(tom)

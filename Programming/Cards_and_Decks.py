@@ -28,7 +28,7 @@ class Deck:
             raise ValueError("All cards have been dealt")
         fnum = min([self.count(),num])
         cards = self.cards[-fnum:] # removed cards.
-        self.cards = self.cards[:-fnum] #remaining deck.
+        self.cards = self.cards[:-fnum] # remaining deck.
         return cards
 
     def shuffle(self):

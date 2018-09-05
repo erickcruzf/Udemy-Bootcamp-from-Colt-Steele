@@ -6,10 +6,6 @@ class Card:
     value_list = ("A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q","K")
     
     def __init__(self, value, suit):
-        if suit not in Card.suits_allowed:
-            raise ValueError(f"Card suit must be in {Card.suits_allowed}!")
-        if value not in Card.value_list:
-            raise ValueError(f"Card value must be in {Card.value_list}!")
         self.suit = suit
         self.value = value
 
@@ -28,9 +24,11 @@ class Deck:
         return f"Deck has {self.count()} cards"
 
     def _deal(self, num):
+        if self.count() == 0:
+            raise ValueError("All cards have been dealt")
         fnum = min([self.count(),num])
-        cards = self.cards[-fnum:]
-        self.cards = self.cards[:-fnum]
+        cards = self.cards[-fnum:] # removed cards.
+        self.cards = self.cards[:-fnum] #remaining deck.
         return cards
 
     def shuffle(self):

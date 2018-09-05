@@ -40,7 +40,7 @@ class Deck:
     def deal_hand(self, number):
         return self._deal(number)
 
-
+#examples below:
 Deck1 = Deck()
 Deck1.shuffle()
 print(Deck1.deal_card())

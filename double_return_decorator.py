@@ -1,3 +1,4 @@
+#Retorna qualquer função duas vezes em uma lista.
 from functools import wraps
 
 def double_return(fn):

@@ -35,3 +35,18 @@ def update_users(oldFirst, oldLast, newFirst, newLast):
             else:
                 csvWriter.writerow(row)
         return "Users updated: {}.".format(update)
+
+def delete_users(firstName, lastName):
+    with open("users.csv") as csvFile:
+        csvReader = csv.reader(csvFile)
+        rows = [row for row in csvReader]
+    
+    removed = 0
+    with open("users.csv" , "w") as csvFile:
+        csvWriter = csv.writer(csvFile)
+        for ele in rows:
+            if ele[0] == firstName and ele[1] == lastName:
+                removed += 1
+            else:
+                csvWriter.writerow(ele)
+        return "Users deleted: {}.".format(removed)
